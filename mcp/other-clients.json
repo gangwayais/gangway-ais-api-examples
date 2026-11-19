@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gangway-ais": {
+      "url": "https://gangwayais.com/mcp",
+      "headers": { "Authorization": "Bearer gw_live_..." }
+    }
+  }
+}

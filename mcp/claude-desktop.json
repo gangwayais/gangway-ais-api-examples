@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "gangway-ais": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://gangwayais.com/mcp",
+               "--header", "Authorization: Bearer gw_live_..."]
+    }
+  }
+}
