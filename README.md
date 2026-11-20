@@ -9,7 +9,7 @@ Small working examples for the [Gangway AIS](https://gangwayais.com) Data API an
 - [Documentation](https://gangwayais.com/docs/) for the full reference of endpoints, parameters and answers
 - [Quickstart](https://gangwayais.com/docs/quickstart/)
 - [Credits and limits](https://gangwayais.com/docs/credits/)
-- [Plans](https://gangwayais.com/#pricing)
+- Data API access beyond the free key is by agreement. Write to [desk@gangwayais.com](mailto:desk@gangwayais.com)
 - [MCP connector](https://gangwayais.com/docs/mcp/)
 
 ## Your key
@@ -22,6 +22,8 @@ export GANGWAY_KEY=gw_live_...
 
 Or copy `.env.example` to `.env` and load it in your shell. `.env` is in `.gitignore` so it stays out of your commits. Keep your key on your server, never in a web page or an app bundle. If a key leaks, replace it in your account and the old one stops working at once.
 
+A station data key is a different key. A station owner makes it on the station's private page and it reads station data only, as the [documentation](https://gangwayais.com/docs/credits/#station-data) and [feed-gangway-ais](https://github.com/gangwayais/feed-gangway-ais#station-data) explain. These examples use a Data API key from your account.
+
 Two calls need no key. The service status and the list of MCP tools.
 
 ## What is here
@@ -33,11 +35,11 @@ Two calls need no key. The service status and the list of MCP tools.
 | Vessels in an area | `GET /v1/vessels` | 1 per vessel | [vessels-in-area.sh](curl/vessels-in-area.sh) | [vessels_in_area.py](python/vessels_in_area.py) | [vessels-in-area.mjs](javascript/vessels-in-area.mjs) |
 | Search ports | `GET /v1/ports/search` | none | [search-ports.sh](curl/search-ports.sh) | | |
 | Arrivals at a port | `GET /v1/ports/{locode}/vessels` | 1 per row | [port-arrivals.sh](curl/port-arrivals.sh) | [port_arrivals.py](python/port_arrivals.py) | [port-arrivals.mjs](javascript/port-arrivals.mjs) |
-| Waiting times at anchor | `GET /v1/ports/{locode}/waiting` | 5, paid plan | [waiting-times.sh](curl/waiting-times.sh) | [waiting_times.py](python/waiting_times.py) | [waiting-times.mjs](javascript/waiting-times.mjs) |
+| Waiting times at anchor | `GET /v1/ports/{locode}/waiting` | 5, by agreement | [waiting-times.sh](curl/waiting-times.sh) | [waiting_times.py](python/waiting_times.py) | [waiting-times.mjs](javascript/waiting-times.mjs) |
 | Your usage | `GET /v1/usage` | none | [usage.sh](curl/usage.sh) | | |
 | MCP tools | `POST /mcp` | as the API | [mcp-list-tools.sh](curl/mcp-list-tools.sh), [mcp-call-tool.sh](curl/mcp-call-tool.sh) | [mcp_client.py](python/mcp_client.py) | [mcp-client.mjs](javascript/mcp-client.mjs) |
 
-The waiting times example needs a paid Data API plan. With a free key it answers `402`. The others work with a free key within its limits, which are on the [credits page](https://gangwayais.com/docs/credits/).
+The waiting times example needs Data API access by agreement. With a free key it answers `402`. The others work with a free key within its limits, which are on the [credits page](https://gangwayais.com/docs/credits/).
 
 ## Run them
 
@@ -89,7 +91,7 @@ The connector lets an AI assistant answer questions about vessels and ports with
 | Claude desktop app | [mcp/claude-desktop.json](mcp/claude-desktop.json) |
 | Cursor, VS Code, Windsurf and others | [mcp/other-clients.json](mcp/other-clients.json) |
 
-Put your own key in place of `gw_live_...`. A free key answers the tools marked for free accounts on the [MCP page](https://gangwayais.com/docs/mcp/). The other tools need a paid plan.
+Put your own key in place of `gw_live_...`. A free key answers the tools marked for free accounts on the [MCP page](https://gangwayais.com/docs/mcp/). The other tools need Data API access by agreement.
 
 `python/mcp_client.py` and `javascript/mcp-client.mjs` show the protocol itself. The connector speaks streamable HTTP, takes POST only and gives one JSON answer per request with no sessions.
 

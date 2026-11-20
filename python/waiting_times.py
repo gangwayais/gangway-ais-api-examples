@@ -1,4 +1,4 @@
-"""Waiting times at anchor for a port. 5 credits. Needs a paid Data API plan.
+"""Waiting times at anchor for a port. 5 credits. Needs Data API access by agreement.
 
 Usage: python waiting_times.py NLRTM
 """

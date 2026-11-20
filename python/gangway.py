@@ -39,6 +39,6 @@ def get(path, params=None, auth=True):
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", "replace")
         hint = {401: "The key is missing or not valid.",
-                402: "No credits left, or this needs a paid plan.",
+                402: "No credits left, or this needs Data API access by agreement.",
                 429: f"Too many requests. Wait {e.headers.get('Retry-After', 'a few')} seconds."}.get(e.code, "")
         sys.exit(f"HTTP {e.code} {hint}\n{body}")

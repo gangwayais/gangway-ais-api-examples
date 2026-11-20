@@ -22,7 +22,7 @@ export async function get(path, params = {}, { auth = true } = {}) {
   if (auth) headers.Authorization = `Bearer ${key()}`;
   const r = await fetch(url, { headers });
   if (!r.ok) {
-    const hint = { 401: "The key is missing or not valid.", 402: "No credits left, or this needs a paid plan.",
+    const hint = { 401: "The key is missing or not valid.", 402: "No credits left, or this needs Data API access by agreement.",
       429: `Too many requests. Wait ${r.headers.get("retry-after") || "a few"} seconds.` }[r.status] || "";
     console.error(`HTTP ${r.status} ${hint}\n${await r.text()}`);
     process.exit(1);
